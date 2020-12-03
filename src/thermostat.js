@@ -6,55 +6,56 @@ class Thermostat {
     this.MEDIUM_USAGE = 25;
     this.MAXIMUM_TEMPERATURE_PSM_ON = 32;
     this.MAXIMUM_TEMPERATURE_PSM_OFF = 25;
-    this.set_temperature = this.DEFAULT_TEMPERATURE;
-    this.power_saving = true;
+    this.setTemperature = this.DEFAULT_TEMPERATURE;
+    this.powerSaving = true;
   };
 
-  increase_temp(amount = 1) {
-    if (!this.power_saving && this.set_temperature + amount <= 32) {
-      this.set_temperature += amount;
-    } else if(this.power_saving && this.set_temperature + amount <= 25) {
-      this.set_temperature += amount;
+  increaseTemp(amount = 1) {
+    if (!this.powerSaving && this.setTemperature + amount <= 32) {
+      this.setTemperature += amount;
+    } else if(this.powerSaving && this.setTemperature + amount <= 25) {
+      this.setTemperature += amount;
     };
   };
 
-  decrease_temp(amount = 1) {
-    if (this.set_temperature - amount >= this.MINIMUM_TEMPERATURE) {
-      this.set_temperature -= amount;
+  decreaseTemp(amount = 1) {
+    if (this.setTemperature - amount >= this.MINIMUM_TEMPERATURE) {
+      this.setTemperature -= amount;
     };
   };
 
-  toggle_power_saving() {
-    this.power_saving = !this.power_saving;
+  togglePowerSaving() {
+    this.powerSaving = !this.powerSaving;
   };
 
   reset() {
-    this.set_set_temperature(this.DEFAULT_TEMPERATURE);
+    this.setSetTemperature(this.DEFAULT_TEMPERATURE);
   };
 
-  energy_usage() {
-    if (this.set_temperature < this.LOW_USAGE) {
+  energyUsage() {
+    if (this.setTemperature < this.LOW_USAGE) {
       return "low-usage";
-    } else if (this.set_temperature <= this.MEDIUM_USAGE) {
+    } else if (this.setTemperature <= this.MEDIUM_USAGE) {
       return "medium-usage";
     } else {
       return "high-usage";
     };
   };
 
-  get_set_temperature() {
-    return this.set_temperature;
+  getSetTemperature() {
+    return this.setTemperature;
   };
 
-  get_power_saving() {
-    return this.power_saving;
+  getPowerSaving() {
+    return this.powerSaving;
   };
 
-  set_set_temperature(temp) {
-    this.set_temperature = temp;
+  setSetTemperature(temp) {
+    this.setTemperature = temp;
   }
 
 }
-// create getter and setter methods
+
 // change to camel case
 // below maximum method
+// refactor tests
