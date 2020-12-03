@@ -1,6 +1,12 @@
 class Thermostat {
   constructor() {
-    this.set_temperature = 20;
+    this.DEFAULT_TEMPERATURE = 20;
+    this.MINIMUM_TEMPERATURE = 10;
+    this.LOW_USAGE = 18;
+    this.MEDIUM_USAGE = 25;
+    this.MAXIMUM_TEMPERATURE_PSM_ON = 32;
+    this.MAXIMUM_TEMPERATURE_PSM_OFF = 25;
+    this.set_temperature = this.DEFAULT_TEMPERATURE;
     this.power_saving = true;
   };
 
@@ -13,7 +19,7 @@ class Thermostat {
   };
 
   decrease_temp(amount = 1) {
-    if (this.set_temperature - amount >= 10) {
+    if (this.set_temperature - amount >= this.MINIMUM_TEMPERATURE) {
       this.set_temperature -= amount;
     };
   };
@@ -23,13 +29,13 @@ class Thermostat {
   };
 
   reset() {
-    this.set_temperature = 20;
+    this.set_temperature = this.DEFAULT_TEMPERATURE;
   };
 
   energy_usage() {
-    if (this.set_temperature < 18) {
+    if (this.set_temperature < this.LOW_USAGE) {
       return "low-usage";
-    } else if (this.set_temperature <= 25) {
+    } else if (this.set_temperature <= this.MEDIUM_USAGE) {
       return "medium-usage";
     } else {
       return "high-usage";
@@ -37,3 +43,8 @@ class Thermostat {
   };
 
 }
+
+// remove magic numbers
+// create getter and setter methods
+// change to camel case
+// below maximum method
