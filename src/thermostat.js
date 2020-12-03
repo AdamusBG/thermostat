@@ -29,7 +29,7 @@ class Thermostat {
   };
 
   reset() {
-    this.set_temperature = this.DEFAULT_TEMPERATURE;
+    this.set_set_temperature(this.DEFAULT_TEMPERATURE);
   };
 
   energy_usage() {
@@ -42,9 +42,19 @@ class Thermostat {
     };
   };
 
-}
+  get_set_temperature() {
+    return this.set_temperature;
+  };
 
-// remove magic numbers
+  get_power_saving() {
+    return this.power_saving;
+  };
+
+  set_set_temperature(temp) {
+    this.set_temperature = temp;
+  }
+
+}
 // create getter and setter methods
 // change to camel case
 // below maximum method
