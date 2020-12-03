@@ -4,22 +4,20 @@ class Thermostat {
     this.MINIMUM_TEMPERATURE = 10;
     this.LOW_USAGE = 18;
     this.MEDIUM_USAGE = 25;
-    this.MAXIMUM_TEMPERATURE_PSM_ON = 32;
-    this.MAXIMUM_TEMPERATURE_PSM_OFF = 25;
+    this.MAXIMUM_TEMPERATURE_PSM_OFF = 32;
+    this.MAXIMUM_TEMPERATURE_PSM_ON = 25;
     this.setTemperature = this.DEFAULT_TEMPERATURE;
     this.powerSaving = true;
   };
 
   increaseTemp(amount = 1) {
-    if (!this.powerSaving && this.setTemperature + amount <= 32) {
+    if (this.isBelowMaximum(amount)) {
       this.setTemperature += amount;
-    } else if(this.powerSaving && this.setTemperature + amount <= 25) {
-      this.setTemperature += amount;
-    };
+    }
   };
 
   decreaseTemp(amount = 1) {
-    if (this.setTemperature - amount >= this.MINIMUM_TEMPERATURE) {
+    if (this.isAboveMinimum(amount)) {
       this.setTemperature -= amount;
     };
   };
@@ -42,6 +40,23 @@ class Thermostat {
     };
   };
 
+  isBelowMaximum(amount) {
+    if (this.powerSaving && this.setTemperature + amount <= this.MAXIMUM_TEMPERATURE_PSM_ON) {
+      return true;
+    };
+    if (!this.powerSaving && this.setTemperature + amount <= this.MAXIMUM_TEMPERATURE_PSM_OFF) {
+      return true;
+    };
+    return false;
+  };
+
+  isAboveMinimum(amount) {
+    if (this.setTemperature - amount >= this.MINIMUM_TEMPERATURE) {
+      return true;
+    };
+    return false;
+  };
+
   getSetTemperature() {
     return this.setTemperature;
   };
@@ -56,6 +71,4 @@ class Thermostat {
 
 }
 
-// change to camel case
-// below maximum method
 // refactor tests
