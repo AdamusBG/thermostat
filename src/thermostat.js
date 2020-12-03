@@ -13,7 +13,7 @@ class Thermostat {
   increaseTemp(amount = 1) {
     if (this.isBelowMaximum(amount)) {
       this.setTemperature += amount;
-    }
+    };
   };
 
   decreaseTemp(amount = 1) {
