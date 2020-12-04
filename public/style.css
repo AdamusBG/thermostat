@@ -1,15 +1,57 @@
+html,
+body {
+    background-color: #f4f5f6;
+    color: #555;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+
+h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+
 .container {
-    width: 95%;
+    width: 50%;
     margin: auto;
     margin-top: 0.5em;
 }
 
-.left { width: 47.5%; }
+.left {
+  padding-right: 3%;
+}
 
 .right {
-  width: 47.5%;
+  padding-left: 3%;
+  padding-top: 1.5%;
+}
+
+.split {
+  width: 47%;
   text-align: right;
 }
+
+#arrows { padding-left: 2%; }
+
+.energy-usage {
+  width: 20%;
+  margin-left: 40%;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 0;
+  padding: 5px;
+  color: #fff;
+}
+
+.high { background-color: #f71833; }
+
+.medium { background-color: #000000; }
+
+.low { background-color: #64c812 }
 
 /* Reusable row */
 
@@ -25,7 +67,7 @@
 .col {
 	display: block;
 	float:left;
-	margin: 1% 0 1% 1.6%;
+	margin: 1% 0 1% 0%;
 }
 
 .col:first-child { margin-left: 0; }
@@ -33,18 +75,57 @@
 /* Buttons */
 
 button {
+  border-style: none;
+  background-color: #f4f5f6;
+}
+
+button .fa-arrow-alt-circle-down {
     display: inline-block;
     padding: 5px 15px;
     font-weight: 100;
     text-decoration: none;
     border-radius: 200px;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
-    color: #51a7e0;
-    border: 1px solid #51a7e0;
+    color: #05f;
+    border: 1px solid #05f;
 }
 
-button:hover,
-button:active {
-    background-color: #51a7e0;
+button:hover .fa-arrow-alt-circle-down,
+button:active .fa-arrow-alt-circle-down {
+    background-color: #05f;
+    color: #f4f5f6;
+}
+
+button .fa-arrow-alt-circle-up {
+    display: inline-block;
+    padding: 5px 15px;
+    font-weight: 100;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    color: #f71833;
+    border: 1px solid #f71833;
+}
+
+button:hover .fa-arrow-alt-circle-up,
+button:active .fa-arrow-alt-circle-up {
+    background-color: #f71833;
+    color: #f4f5f6;
+}
+
+#tpsm button {
+    display: inline-block;
+    padding: 5px 15px;
+    font-weight: 100;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    color: #64c812;
+    border: 1px solid #64c812;
+}
+
+#tpsm button:hover,
+#tpsm button:active {
+    background-color: #64c812;
     color: #f4f5f6;
 }
