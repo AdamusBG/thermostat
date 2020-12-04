@@ -6,16 +6,40 @@ $(document).ready(function () {
     $('.temperature').text(thermostat.setTemperature);
   };
 
+  function updateEnergyUse() {
+    energyUse = thermostat.energyUsage();
+    if (energyUse === "high-usage") {
+      replaceEnergyClass('high');
+      $('#energy-text').text("High");
+    } else if (energyUse === "medium-usage") {
+      replaceEnergyClass('medium');
+      $('#energy-text').text("Medium");
+    } else if (energyUse === "low-usage") {
+      replaceEnergyClass('low');
+      $('#energy-text').text("Low");
+    };
+  };
+
+  function replaceEnergyClass(className) {
+    $('.energy-usage').removeClass('low');
+    $('.energy-usage').removeClass('medium');
+    $('.energy-usage').removeClass('high');
+    $('.energy-usage').addClass(className);
+  };
+
   updateTemperature();
+  updateEnergyUse();
 
   $('.fa-arrow-alt-circle-up').on("click", function() {
     thermostat.increaseTemp();
     updateTemperature();
+    updateEnergyUse();
   });
 
   $('.fa-arrow-alt-circle-down').on("click", function() {
     thermostat.decreaseTemp();
     updateTemperature();
+    updateEnergyUse();
   });
 
 });
