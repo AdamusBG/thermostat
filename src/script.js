@@ -61,6 +61,3 @@ $(document).ready(function () {
   });
 
 });
-
-
-// add logic to reduce temp to 25 if over and power saving turned back on
