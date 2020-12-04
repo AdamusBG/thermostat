@@ -17,7 +17,7 @@
       <div class="row">
         <div class="left split col">
           <p>Current temp: <span class="temperature"></span>°C</p>
-          <p>Power saving: on</p>
+          <p>Power saving: <span id="psmd"></span></p>
         </div>
         <div class="right split col">
           <div class="row" id="arrows">
@@ -30,7 +30,12 @@
           </div>
           <div class="row">
             <div class="col" id="tpsm">
-              <button type="button" name="button">toggle power saving</button>
+              <button type="button" name="button" class="power-saving-button">toggle power saving</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col" id="reset">
+              <button type="button" name="button" class="reset-button">reset</button>
             </div>
           </div>
         </div>

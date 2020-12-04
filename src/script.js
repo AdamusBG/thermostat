@@ -27,8 +27,13 @@ $(document).ready(function () {
     $('.energy-usage').addClass(className);
   };
 
+  function updatePowerSaving(state) {
+    $('#psmd').text(state);
+  };
+
   updateTemperature();
   updateEnergyUse();
+  updatePowerSaving("On");
 
   $('.fa-arrow-alt-circle-up').on("click", function() {
     thermostat.increaseTemp();
@@ -42,17 +47,17 @@ $(document).ready(function () {
     updateEnergyUse();
   });
 
+  $('.power-saving-button').on("click", function() {
+    console.log("I am being clicked");
+    on = thermostat.togglePowerSaving();
+    if (on) {
+      updatePowerSaving("On");
+    } else {
+      updatePowerSaving("Off");
+    };
+  });
+
 });
 
 
-// event watcher for up arrow press
-// should increase temp by one (given max conditions) - both increase objects temp and update on page
-// should check if new temp changes energy usage state - call object energy use function and update on page
-
-// event watcher for down arrow press
-// should decrease temp by one (given max conditions) - both decrease objects temp and update on page
-// should check if new temp changes energy usage state - call object energy use function and update on page
-
-// event watcher for power save mode press - update object state and update on page
-
-// if energy usage changes, remove and add css classes
+// add logic to reduce temp to 25 if over and power saving turned back on

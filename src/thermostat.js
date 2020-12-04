@@ -24,6 +24,7 @@ class Thermostat {
 
   togglePowerSaving() {
     this.powerSaving = !this.powerSaving;
+    return this.powerSaving;
   };
 
   reset() {
