@@ -24,7 +24,16 @@ class Thermostat {
 
   togglePowerSaving() {
     this.powerSaving = !this.powerSaving;
+    if (this.powerSaving) {
+      this.tempAboveLimit();
+    }
     return this.powerSaving;
+  };
+
+  tempAboveLimit() {
+    if (this.setTemperature > this.MAXIMUM_TEMPERATURE_PSM_ON) {
+      this.setSetTemperature(this.MAXIMUM_TEMPERATURE_PSM_ON);
+    };
   };
 
   reset() {

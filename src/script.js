@@ -30,6 +30,7 @@ $(document).ready(function () {
 
   function updatePowerSaving(state) {
     $('#psmd').text(state);
+    updateTemperature();
   };
 
   updateTemperature();
@@ -46,7 +47,6 @@ $(document).ready(function () {
   });
 
   $('.power-saving-button').on("click", function() {
-    console.log("I am being clicked");
     on = thermostat.togglePowerSaving();
     if (on) {
       updatePowerSaving("On");
