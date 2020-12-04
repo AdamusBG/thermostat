@@ -21,11 +21,12 @@ h1 {
 
 .left {
   padding-right: 3%;
+  padding-top: 1%;
 }
 
 .right {
   padding-left: 3%;
-  padding-top: 1.5%;
+  padding-top: 0;
 }
 
 .split {
