@@ -4,6 +4,7 @@ $(document).ready(function () {
 
   function updateTemperature() {
     $('.temperature').text(thermostat.setTemperature);
+    updateEnergyUse()
   };
 
   function updateEnergyUse() {
@@ -32,19 +33,16 @@ $(document).ready(function () {
   };
 
   updateTemperature();
-  updateEnergyUse();
   updatePowerSaving("On");
 
   $('.fa-arrow-alt-circle-up').on("click", function() {
     thermostat.increaseTemp();
     updateTemperature();
-    updateEnergyUse();
   });
 
   $('.fa-arrow-alt-circle-down').on("click", function() {
     thermostat.decreaseTemp();
     updateTemperature();
-    updateEnergyUse();
   });
 
   $('.power-saving-button').on("click", function() {
@@ -55,6 +53,11 @@ $(document).ready(function () {
     } else {
       updatePowerSaving("Off");
     };
+  });
+
+  $('.reset-button').on("click", function() {
+    thermostat.reset();
+    updateTemperature();
   });
 
 });
