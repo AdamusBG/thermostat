@@ -5,7 +5,10 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Thermostat</title>
       <link type="text/css" rel="stylesheet" href="../public/style.css" />
-      <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+      <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script src="../src/thermostat.js"></script>
+      <script src="../src/script.js"></script>
   </head>
 
   <body>
@@ -13,7 +16,7 @@
       <h1>My Thermostat</h1>
       <div class="row">
         <div class="left split col">
-          <p>Current temp: example °C</p>
+          <p>Current temp: <span class="temperature"></span>°C</p>
           <p>Power saving: on</p>
         </div>
         <div class="right split col">
@@ -32,11 +35,10 @@
           </div>
         </div>
       </div>
-      <div class="row energy-usage medium">
+      <div class="row energy-usage low">
         Energy usage: medium
       </div>
     </div>
 
   </body>
-
 </html>
