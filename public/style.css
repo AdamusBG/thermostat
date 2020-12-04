@@ -35,6 +35,8 @@ h1 {
 
 #arrows { padding-left: 2%; }
 
+#reset { padding-left: 9.5%; }
+
 .energy-usage {
   width: 20%;
   margin-left: 40%;
@@ -135,14 +137,12 @@ button:active .fa-arrow-alt-circle-up {
     text-decoration: none;
     border-radius: 200px;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
-    color: #64c812;
-    border: 1px solid #64c812;
+    color: #000000;
+    border: 1px solid #000000;
 }
 
 #reset button:hover,
 #reset button:active {
-    background-color: #64c812;
+    background-color: #000000;
     color: #f4f5f6;
 }
-
-/* change reset button so it doesn't look bad */
